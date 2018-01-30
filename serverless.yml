@@ -1,0 +1,41 @@
+service: demo-campus-mobile
+
+provider:
+  name: aws
+  runtime: nodejs6.10
+  region: us-east-1
+  stage: v1
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - logs:*
+        - dynamodb:*
+      Resource: "*"
+
+functions:
+  messagePost:
+    name: microservice-post-message-${self:provider.stage}
+    handler: handler.post
+    description: Microservice to post a messages
+    memorySize: 128
+    timeout: 150
+    events:
+      - http:
+          method: post
+          path: messages
+          cors: true
+
+  messageGet:
+    name: microservice-get-message-${self:provider.stage}
+    handler: handler.getAll
+    description: Microservice to get all messages
+    memorySize: 128
+    timeout: 150
+    events:
+      - http:
+          method: get
+          path: messages/{id}
+          cors: true
+
+custom:
+  stage: "${opt:stage, self:provider.stage}"

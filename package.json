@@ -1,0 +1,22 @@
+{
+  "name": "campus-mobile-microservices",
+  "version": "1.0.0",
+  "description": "This repository is a demo of microservices with NODE, Lambda, API Gateway, Dynamodb and Serverless Framework",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jonatassaraiva/campus-mobile-microservices.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jonatassaraiva/campus-mobile-microservices/issues"
+  },
+  "homepage": "https://github.com/jonatassaraiva/campus-mobile-microservices#readme",
+  "dependencies": {
+    "dynamoose": "^0.8.6"
+  }
+}
